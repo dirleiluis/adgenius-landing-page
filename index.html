@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdGenius AI - Marketing Profissional Para Qualquer Negócio</title>
+    <meta name="description" content="Crie posts, vídeos e imagens profissionais sem saber nada de marketing. Do padeiro à multinacional. 7 dias grátis, sem cartão.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --primary-light: rgba(16, 185, 129, 0.1);
+            --purple: #a855f7;
+            --red: #ef4444;
+            --orange: #f59e0b;
+            --dark: #0a0f1e;
+            --dark-2: #161d31;
+            --dark-3: #1e2842;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Language Selector - NOT FIXED */
+        .lang-selector {
+            background: var(--dark-2);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0f1e 0%, #161d31 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 80px 20px 60px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -300px;
+            right: -300px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-light);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 22px);
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+            animation: fadeInUp 0.6s ease-out 0.6s both;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        .trust-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+            color: var(--text-muted);
+            font-size: 14px;
+            animation: fadeInUp 0.6s ease-out 0.8s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--dark-2);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 40px 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Section Common */
+        .section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 60px;
+        }
+
+        /* Before/After */
+        .before-after {
+            background: var(--dark);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .comparison-card {
+            background: var(--dark-2);
+            border: 2px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .comparison-card.before {
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        .comparison-card.after {
+            border-color: rgba(16, 185, 129, 0.3);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(168, 85, 247, 0.05));
+        }
+
+        .comparison-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .comparison-card.before .comparison-badge {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--red);
+        }
+
+        .comparison-card.after .comparison-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary);
+        }
+
+        .comparison-card h3 {
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .comparison-list li::before {
+            content: '✗';
+            color: var(--red);
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .comparison-card.after .comparison-list li::before {
+            content: '✓';
+            color: var(--primary);
+        }
+
+        /* Use Cases */
+        .use-cases {
+            background: var(--dark-2);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .case-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .case-emoji {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .case-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .case-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--dark);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .step-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Features */
+        .features {
+            background: var(--dark-2);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            gap: 20px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .feature-content h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .feature-content p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--dark);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--dark-2);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .stars {
+            color: var(--orange);
+            font-size: 20px;
+            margin-bottom: 16px;
+            letter-spacing: 4px;
+        }
+
+        .testimonial-text {
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--dark-2);
+        }
+
+        .faq-grid {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 16px;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* CTA Final */
+        .cta-final {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-final p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-final .cta-btn {
+            background: white;
+            color: var(--primary);
+            font-size: 20px;
+            padding: 20px 50px;
+        }
+
+        .cta-final .trust-line {
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-2);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hide inactive languages */
+        [data-lang] {
+            display: none;
+        }
+
+        [data-lang].active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector (NOT FIXED - scrolls with page) -->
+    <div class="lang-selector">
+        <button class="lang-btn active" onclick="changeLang('pt')">🇧🇷 PT</button>
+        <button class="lang-btn" onclick="changeLang('en')">🇺🇸 EN</button>
+        <button class="lang-btn" onclick="changeLang('es')">🇪🇸 ES</button>
+        <button class="lang-btn" onclick="changeLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" onclick="changeLang('de')">🇩🇪 DE</button>
+        <button class="lang-btn" onclick="changeLang('it')">🇮🇹 IT</button>
+    </div>
+
+    <!-- PORTUGUÊS -->
+    <div data-lang="pt" class="active">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="badge">✨ 7 Dias Grátis • Sem Cartão de Crédito</div>
+                <h1>
+                    Marketing Profissional<br>
+                    <span class="gradient-text">Para Qualquer Negócio</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Do padeiro à multinacional. Crie posts, vídeos e imagens profissionais sem saber nada de marketing. Basta digitar sua profissão e pronto.
+                </p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Começar Agora Grátis</a>
+                <div class="trust-line">
+                    ✓ Sem cartão necessário &nbsp;•&nbsp; ✓ 7 dias grátis &nbsp;•&nbsp; ✓ Cancele quando quiser
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>5.000+</h3>
+                        <p>conteúdos criados</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>13</h3>
+                        <p>ferramentas de IA</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>6</h3>
+                        <p>idiomas nativos</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>sem complicação</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Before/After -->
+        <section class="section before-after">
+            <div class="container">
+                <h2 class="section-title">Marketing <span class="gradient-text">antes e depois</span> do AdGenius</h2>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card before">
+                        <span class="comparison-badge">✗ O JEITO ANTIGO</span>
+                        <h3>Complicado e Caro</h3>
+                        <ul class="comparison-list">
+                            <li>Agências cobram milhares por projeto</li>
+                            <li>Semanas esperando aprovação</li>
+                            <li>Depende de designer, redator, videomaker</li>
+                            <li>Impossível escalar sozinho</li>
+                            <li>Cada rede social = ferramenta diferente</li>
+                            <li>Precisa entender de marketing</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-card after">
+                        <span class="comparison-badge">✓ COM ADGENIUS</span>
+                        <h3>Simples e Acessível</h3>
+                        <ul class="comparison-list">
+                            <li>Teste grátis por 7 dias completos</li>
+                            <li>Conteúdo pronto em minutos</li>
+                            <li>100% você mesmo, sem depender de ninguém</li>
+                            <li>Crie quantos posts quiser por dia</li>
+                            <li>13 ferramentas em 1 plataforma</li>
+                            <li>Digite "padeiro" e está pronto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="section use-cases">
+            <div class="container">
+                <h2 class="section-title">Funciona Para <span class="gradient-text">Qualquer Profissão</span></h2>
+                <p class="section-subtitle">De iniciantes a empresas. Se você tem algo para vender, o AdGenius cria seu conteúdo.</p>
+                
+                <div class="cases-grid">
+                    <div class="case-card">
+                        <div class="case-emoji">🍰</div>
+                        <h3>Dona de Casa</h3>
+                        <p>Faz bolos em casa? Digite "confeiteira caseira" + "mães de família" e receba 30 dias de posts prontos para Instagram.</p>
+                    </div>
+                    <div class="case-card">
+                        <div class="case-emoji">💼</div>
+                        <h3>Coach</h3>
+                        <p>Digite "coach de emagrecimento" + "mulheres 30-45 anos" e tenha vídeos, carrosséis e stories profissionais.</p>
+                    </div>
+                    <div class="case-card">
+                        <div class="case-emoji">🏪</div>
+                        <h3>Lojista</h3>
+                        <p>Tem uma loja? Digite "loja de roupas femininas" + "jovens 18-25" e crie campanhas completas com imagens IA.</p>
+                    </div>
+                    <div class="case-card">
+                        <div class="case-emoji">🏋️</div>
+                        <h3>Personal Trainer</h3>
+                        <p>Precisa de conteúdo diário? Digite "personal trainer" e gere dicas de treino, motivação e transformações.</p>
+                    </div>
+                    <div class="case-card">
+                        <div class="case-emoji">🏢</div>
+                        <h3>Empresa</h3>
+                        <p>Equipe de marketing sobrecarregada? Automatize posts corporativos, newsletters e vídeos institucionais.</p>
+                    </div>
+                    <div class="case-card">
+                        <div class="case-emoji">🎓</div>
+                        <h3>Infoprodutos</h3>
+                        <p>Vende cursos? Crie emails de vendas, scripts de VSL e posts de lançamento em minutos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section how-it-works">
+            <div class="container">
+                <h2 class="section-title">Simples, Rápido e <span class="gradient-text">Sem Complicação</span></h2>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Digite 2 Palavras</h3>
+                        <p>Sua profissão + seu público. Exemplo: "nutricionista" + "mulheres grávidas". Pronto. O AdGenius entende.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>IA Cria Tudo</h3>
+                        <p>Textos persuasivos, imagens realistas com DALL-E 3, vídeos com avatares, calendários de 365 dias. Tudo automático.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Publique e Venda</h3>
+                        <p>Copie, baixe ou agende. Funciona em Instagram, TikTok, Facebook, LinkedIn, YouTube. Todas as redes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section features">
+            <div class="container">
+                <h2 class="section-title">Tudo Que Você Precisa <span class="gradient-text">Em Um Só Lugar</span></h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✍️</div>
+                        <div class="feature-content">
+                            <h4>Textos Persuasivos</h4>
+                            <p>Posts Instagram, TikTok, LinkedIn, Facebook, YouTube. Copy profissional em segundos.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <div class="feature-content">
+                            <h4>DALL-E 3 Integrado</h4>
+                            <p>Único com DALL-E 3. Imagens ultra-realistas sem sair da plataforma. Sem Canva, sem nada.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎬</div>
+                        <div class="feature-content">
+                            <h4>Vídeos com Avatar IA</h4>
+                            <p>Crie vídeos profissionais com apresentadores virtuais. Sem câmera, sem edição.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📅</div>
+                        <div class="feature-content">
+                            <h4>Calendário 365 Dias</h4>
+                            <p>Um ano inteiro planejado automaticamente. Nunca mais fique sem ideias.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <div class="feature-content">
+                            <h4>6 Idiomas Nativos</h4>
+                            <p>Português, Inglês, Espanhol, Francês, Alemão, Italiano. Não é tradução, é IA nativa.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <div class="feature-content">
+                            <h4>200+ Prompts Prontos</h4>
+                            <p>Biblioteca completa testada e validada. Economize horas de tentativa e erro.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-content">
+                            <h4>Criação Instantânea</h4>
+                            <p>Do zero ao post em menos de 2 minutos. Mais rápido que qualquer designer.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-content">
+                            <h4>Para Todas as Redes</h4>
+                            <p>Instagram, TikTok, Facebook, LinkedIn, YouTube, Pinterest. Uma ferramenta, todas as redes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">Quem Usa, <span class="gradient-text">Recomenda</span></h2>
+                <p class="section-subtitle">Veja o que nossos clientes estão dizendo sobre o AdGenius</p>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "Antes eu pagava R$ 3.000 por mês para uma agência. Agora eu mesmo crio 10 posts por dia no AdGenius. Economizei uma fortuna e ainda tenho mais controle!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MR</div>
+                            <div class="author-info">
+                                <h4>Marcos Ribeiro</h4>
+                                <p>E-commerce de Cosméticos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "Sou confeiteira caseira e não entendia nada de marketing. Com o AdGenius criei um Instagram profissional em 1 dia. Minhas vendas triplicaram!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JS</div>
+                            <div class="author-info">
+                                <h4>Juliana Silva</h4>
+                                <p>Confeiteira Artesanal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "Ferramenta impressionante! Criei um calendário de 365 dias de conteúdo em 10 minutos. Agora nunca mais fico sem ideias do que postar."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RT</div>
+                            <div class="author-info">
+                                <h4>Rafael Torres</h4>
+                                <p>Coach de Vendas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★☆</div>
+                        <p class="testimonial-text">
+                            "O DALL-E 3 integrado é um diferencial gigante. Crio imagens incríveis sem precisar contratar designer. A qualidade é absurda!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AC</div>
+                            <div class="author-info">
+                                <h4>Amanda Costa</h4>
+                                <p>Gestora de Tráfego</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section faq">
+            <div class="container">
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3 class="faq-question">❓ Preciso saber de marketing?</h3>
+                        <p class="faq-answer">Zero. Se você sabe escrever "padeiro" ou "coach", você sabe usar o AdGenius. A IA cuida de todo o resto: estratégia, copy, design, tudo.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">❓ Como funciona o teste grátis?</h3>
+                        <p class="faq-answer">7 dias completos com acesso total. Sem pedir cartão. Teste tudo, crie quantos posts quiser. Se não gostar, só não renovar.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">❓ Funciona para meu negócio?</h3>
+                        <p class="faq-answer">Se você vende algo (produto, serviço, curso, consultoria), funciona. Da dona de casa que faz bolo até multinacional. Já testamos 200+ nichos.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">❓ Posso cancelar quando quiser?</h3>
+                        <p class="faq-answer">Sim. Sem multa, sem burocracia. Cancela com 1 clique direto no painel. Seus arquivos ficam disponíveis por 30 dias após cancelamento.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">❓ Qual a diferença para o ChatGPT?</h3>
+                        <p class="faq-answer">ChatGPT é genérico. AdGenius é especializado em marketing com 200+ prompts testados, DALL-E 3 integrado, gerador de vídeos, calendários e templates prontos.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">❓ E se eu não souber mexer?</h3>
+                        <p class="faq-answer">Impossível não saber. É literalmente: digite sua profissão, clique em gerar. Mais fácil que Instagram. Se souber usar WhatsApp, sabe usar AdGenius.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta-final">
+            <div class="container">
+                <h2>Seus Concorrentes Já Estão Usando IA.<br>E Você?</h2>
+                <p>Comece a criar conteúdo profissional hoje. Sem equipe, sem equipamento, sem complicação.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Começar Agora - 7 Dias Grátis</a>
+                <div class="trust-line">
+                    ✓ Sem cartão de crédito &nbsp;•&nbsp; ✓ Cancele quando quiser &nbsp;•&nbsp; ✓ Suporte em português
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>© 2026 AdGenius AI. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ENGLISH -->
+    <div data-lang="en">
+        <section class="hero">
+            <div class="container">
+                <div class="badge">✨ 7 Days Free • No Credit Card</div>
+                <h1>Professional Marketing<br><span class="gradient-text">For Any Business</span></h1>
+                <p class="hero-subtitle">From baker to enterprise. Create professional posts, videos and images without knowing marketing. Just type your profession.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Start Free Now</a>
+                <div class="trust-line">✓ No card needed &nbsp;•&nbsp; ✓ 7 days free &nbsp;•&nbsp; ✓ Cancel anytime</div>
+            </div>
+        </section>
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item"><h3>5,000+</h3><p>content created</p></div>
+                    <div class="stat-item"><h3>13</h3><p>AI tools</p></div>
+                    <div class="stat-item"><h3>6</h3><p>native languages</p></div>
+                    <div class="stat-item"><h3>100%</h3><p>no hassle</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section before-after">
+            <div class="container">
+                <h2 class="section-title">Marketing <span class="gradient-text">before and after</span> AdGenius</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-card before">
+                        <span class="comparison-badge">✗ THE OLD WAY</span>
+                        <h3>Complicated & Expensive</h3>
+                        <ul class="comparison-list">
+                            <li>Agencies charge thousands per project</li>
+                            <li>Weeks waiting for approval</li>
+                            <li>Depends on designer, copywriter, videomaker</li>
+                            <li>Impossible to scale alone</li>
+                            <li>Each social media = different tool</li>
+                            <li>Need to understand marketing</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card after">
+                        <span class="comparison-badge">✓ WITH ADGENIUS</span>
+                        <h3>Simple & Affordable</h3>
+                        <ul class="comparison-list">
+                            <li>Free 7-day trial, no strings attached</li>
+                            <li>Content ready in minutes</li>
+                            <li>100% DIY, no dependencies</li>
+                            <li>Create unlimited posts per day</li>
+                            <li>13 tools in 1 platform</li>
+                            <li>Type "baker" and you're done</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section use-cases">
+            <div class="container">
+                <h2 class="section-title">Works For <span class="gradient-text">Any Profession</span></h2>
+                <p class="section-subtitle">From beginners to enterprises. If you have something to sell, AdGenius creates your content.</p>
+                <div class="cases-grid">
+                    <div class="case-card"><div class="case-emoji">🍰</div><h3>Home Baker</h3><p>Make cakes at home? Type "home baker" + "busy moms" and get 30 days of Instagram posts ready.</p></div>
+                    <div class="case-card"><div class="case-emoji">💼</div><h3>Coach</h3><p>Type "weight loss coach" + "women 30-45" and have professional videos, carousels and stories.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏪</div><h3>Shop Owner</h3><p>Have a store? Type "women's clothing" + "young 18-25" and create complete campaigns with AI images.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏋️</div><h3>Personal Trainer</h3><p>Need daily content? Type "personal trainer" and generate workout tips, motivation and transformations.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏢</div><h3>Company</h3><p>Overworked marketing team? Automate corporate posts, newsletters and institutional videos.</p></div>
+                    <div class="case-card"><div class="case-emoji">🎓</div><h3>Online Courses</h3><p>Sell courses? Create sales emails, VSL scripts and launch posts in minutes.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section how-it-works">
+            <div class="container">
+                <h2 class="section-title">Simple, Fast and <span class="gradient-text">No Hassle</span></h2>
+                <div class="steps-grid">
+                    <div class="step-card"><div class="step-number">1</div><h3>Type 2 Words</h3><p>Your profession + your audience. Example: "nutritionist" + "pregnant women". Done. AdGenius understands.</p></div>
+                    <div class="step-card"><div class="step-number">2</div><h3>AI Creates Everything</h3><p>Persuasive texts, realistic images with DALL-E 3, videos with avatars, 365-day calendars. All automatic.</p></div>
+                    <div class="step-card"><div class="step-number">3</div><h3>Publish & Sell</h3><p>Copy, download or schedule. Works on Instagram, TikTok, Facebook, LinkedIn, YouTube. All networks.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section features">
+            <div class="container">
+                <h2 class="section-title">Everything You Need <span class="gradient-text">In One Place</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card"><div class="feature-icon">✍️</div><div class="feature-content"><h4>Persuasive Texts</h4><p>Instagram, TikTok, LinkedIn, Facebook, YouTube posts. Professional copy in seconds.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-content"><h4>DALL-E 3 Built-in</h4><p>Only one with DALL-E 3. Ultra-realistic images without leaving the platform.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎬</div><div class="feature-content"><h4>AI Avatar Videos</h4><p>Create professional videos with virtual presenters. No camera, no editing.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-content"><h4>365-Day Calendar</h4><p>A whole year planned automatically. Never run out of ideas.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🌍</div><div class="feature-content"><h4>6 Native Languages</h4><p>Portuguese, English, Spanish, French, German, Italian. Not translation, native AI.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">📚</div><div class="feature-content"><h4>200+ Ready Prompts</h4><p>Complete tested library. Save hours of trial and error.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-content"><h4>Instant Creation</h4><p>Zero to post in under 2 minutes. Faster than any designer.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-content"><h4>All Networks</h4><p>Instagram, TikTok, Facebook, LinkedIn, YouTube, Pinterest. One tool, all networks.</p></div></div>
+                </div>
+            </div>
+        </section>
+        <section class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">Users <span class="gradient-text">Love It</span></h2>
+                <p class="section-subtitle">See what our customers are saying about AdGenius</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"I used to pay $600/month to an agency. Now I create 10 posts per day on AdGenius. Saved a fortune and have more control!"</p><div class="testimonial-author"><div class="author-avatar">MR</div><div class="author-info"><h4>Mark Roberts</h4><p>E-commerce Owner</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"I'm a home baker and knew nothing about marketing. With AdGenius I created a professional Instagram in 1 day. My sales tripled!"</p><div class="testimonial-author"><div class="author-avatar">JS</div><div class="author-info"><h4>Julia Smith</h4><p>Home Baker</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Amazing tool! Created a 365-day content calendar in 10 minutes. Never run out of posting ideas anymore."</p><div class="testimonial-author"><div class="author-avatar">RT</div><div class="author-info"><h4>Ryan Taylor</h4><p>Sales Coach</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★☆</div><p class="testimonial-text">"The built-in DALL-E 3 is a huge differentiator. I create amazing images without hiring designers. The quality is insane!"</p><div class="testimonial-author"><div class="author-avatar">AC</div><div class="author-info"><h4>Amy Clark</h4><p>Traffic Manager</p></div></div></div>
+                </div>
+            </div>
+        </section>
+        <section class="section faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item"><h3 class="faq-question">❓ Do I need marketing knowledge?</h3><p class="faq-answer">Zero. If you can write "baker" or "coach", you can use AdGenius. AI handles everything: strategy, copy, design, all.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ How does the free trial work?</h3><p class="faq-answer">7 complete days with full access. No card required. Test everything, create as many posts as you want. Don't like it? Just don't renew.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Does it work for my business?</h3><p class="faq-answer">If you sell something (product, service, course, consulting), it works. From home baker to enterprise. We've tested 200+ niches.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Can I cancel anytime?</h3><p class="faq-answer">Yes. No penalty, no hassle. Cancel with 1 click in dashboard. Your files remain available for 30 days after cancellation.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ What's different from ChatGPT?</h3><p class="faq-answer">ChatGPT is generic. AdGenius is specialized in marketing with 200+ tested prompts, DALL-E 3 built-in, video generator, calendars and ready templates.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ What if I don't know how to use it?</h3><p class="faq-answer">Impossible not to know. Literally: type your profession, click generate. Easier than Instagram. If you can use WhatsApp, you can use AdGenius.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-final">
+            <div class="container">
+                <h2>Your Competitors Are Already Using AI.<br>Are You?</h2>
+                <p>Start creating professional content today. No team, no equipment, no hassle.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Start Now - 7 Days Free</a>
+                <div class="trust-line">✓ No credit card &nbsp;•&nbsp; ✓ Cancel anytime &nbsp;•&nbsp; ✓ Support in English</div>
+            </div>
+        </section>
+        <footer><div class="container"><p>© 2026 AdGenius AI. All rights reserved.</p></div></footer>
+    </div>
+
+    <!-- ESPAÑOL -->
+    <div data-lang="es">
+        <section class="hero">
+            <div class="container">
+                <div class="badge">✨ 7 Días Gratis • Sin Tarjeta</div>
+                <h1>Marketing Profesional<br><span class="gradient-text">Para Cualquier Negocio</span></h1>
+                <p class="hero-subtitle">Del panadero a la multinacional. Crea posts, vídeos e imágenes profesionales sin saber de marketing. Solo escribe tu profesión.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Empezar Gratis Ahora</a>
+                <div class="trust-line">✓ Sin tarjeta &nbsp;•&nbsp; ✓ 7 días gratis &nbsp;•&nbsp; ✓ Cancela cuando quieras</div>
+            </div>
+        </section>
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item"><h3>5.000+</h3><p>contenidos creados</p></div>
+                    <div class="stat-item"><h3>13</h3><p>herramientas IA</p></div>
+                    <div class="stat-item"><h3>6</h3><p>idiomas nativos</p></div>
+                    <div class="stat-item"><h3>100%</h3><p>sin complicación</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section before-after">
+            <div class="container">
+                <h2 class="section-title">Marketing <span class="gradient-text">antes y después</span> de AdGenius</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-card before">
+                        <span class="comparison-badge">✗ LA FORMA ANTIGUA</span>
+                        <h3>Complicado y Caro</h3>
+                        <ul class="comparison-list">
+                            <li>Agencias cobran miles por proyecto</li>
+                            <li>Semanas esperando aprobación</li>
+                            <li>Depende de diseñador, redactor, videomaker</li>
+                            <li>Imposible escalar solo</li>
+                            <li>Cada red social = herramienta diferente</li>
+                            <li>Necesitas entender de marketing</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card after">
+                        <span class="comparison-badge">✓ CON ADGENIUS</span>
+                        <h3>Simple y Accesible</h3>
+                        <ul class="comparison-list">
+                            <li>Prueba gratis por 7 días completos</li>
+                            <li>Contenido listo en minutos</li>
+                            <li>100% tú mismo, sin depender de nadie</li>
+                            <li>Crea posts ilimitados por día</li>
+                            <li>13 herramientas en 1 plataforma</li>
+                            <li>Escribe "panadero" y listo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section use-cases">
+            <div class="container">
+                <h2 class="section-title">Funciona Para <span class="gradient-text">Cualquier Profesión</span></h2>
+                <p class="section-subtitle">De principiantes a empresas. Si tienes algo que vender, AdGenius crea tu contenido.</p>
+                <div class="cases-grid">
+                    <div class="case-card"><div class="case-emoji">🍰</div><h3>Repostera Casera</h3><p>¿Haces pasteles en casa? Escribe "repostera casera" + "madres ocupadas" y recibe 30 días de posts listos.</p></div>
+                    <div class="case-card"><div class="case-emoji">💼</div><h3>Coach</h3><p>Escribe "coach adelgazamiento" + "mujeres 30-45" y ten vídeos, carruseles y stories profesionales.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏪</div><h3>Comerciante</h3><p>¿Tienes una tienda? Escribe "ropa femenina" + "jóvenes 18-25" y crea campañas completas con imágenes IA.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏋️</div><h3>Entrenador Personal</h3><p>¿Necesitas contenido diario? Escribe "entrenador personal" y genera tips de entrenamiento y motivación.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏢</div><h3>Empresa</h3><p>¿Equipo de marketing sobrecargado? Automatiza posts corporativos, newsletters y vídeos institucionales.</p></div>
+                    <div class="case-card"><div class="case-emoji">🎓</div><h3>Infoproductos</h3><p>¿Vendes cursos? Crea emails de ventas, scripts de VSL y posts de lanzamiento en minutos.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section how-it-works">
+            <div class="container">
+                <h2 class="section-title">Simple, Rápido y <span class="gradient-text">Sin Complicación</span></h2>
+                <div class="steps-grid">
+                    <div class="step-card"><div class="step-number">1</div><h3>Escribe 2 Palabras</h3><p>Tu profesión + tu público. Ejemplo: "nutricionista" + "mujeres embarazadas". Listo. AdGenius entiende.</p></div>
+                    <div class="step-card"><div class="step-number">2</div><h3>IA Crea Todo</h3><p>Textos persuasivos, imágenes realistas con DALL-E 3, vídeos con avatares, calendarios de 365 días. Todo automático.</p></div>
+                    <div class="step-card"><div class="step-number">3</div><h3>Publica y Vende</h3><p>Copia, descarga o programa. Funciona en Instagram, TikTok, Facebook, LinkedIn, YouTube. Todas las redes.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section features">
+            <div class="container">
+                <h2 class="section-title">Todo Lo Que Necesitas <span class="gradient-text">En Un Solo Lugar</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card"><div class="feature-icon">✍️</div><div class="feature-content"><h4>Textos Persuasivos</h4><p>Posts Instagram, TikTok, LinkedIn, Facebook, YouTube. Copy profesional en segundos.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-content"><h4>DALL-E 3 Integrado</h4><p>Único con DALL-E 3. Imágenes ultra-realistas sin salir de la plataforma.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎬</div><div class="feature-content"><h4>Vídeos con Avatar IA</h4><p>Crea vídeos profesionales con presentadores virtuales. Sin cámara, sin edición.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-content"><h4>Calendario 365 Días</h4><p>Un año entero planificado automáticamente. Nunca más te quedes sin ideas.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🌍</div><div class="feature-content"><h4>6 Idiomas Nativos</h4><p>Portugués, Inglés, Español, Francés, Alemán, Italiano. No es traducción, es IA nativa.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">📚</div><div class="feature-content"><h4>200+ Prompts Listos</h4><p>Biblioteca completa probada y validada. Ahorra horas de ensayo y error.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-content"><h4>Creación Instantánea</h4><p>De cero a post en menos de 2 minutos. Más rápido que cualquier diseñador.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-content"><h4>Para Todas las Redes</h4><p>Instagram, TikTok, Facebook, LinkedIn, YouTube, Pinterest. Una herramienta, todas las redes.</p></div></div>
+                </div>
+            </div>
+        </section>
+        <section class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">Quienes Usan, <span class="gradient-text">Recomiendan</span></h2>
+                <p class="section-subtitle">Mira lo que dicen nuestros clientes sobre AdGenius</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Antes pagaba €500/mes a una agencia. Ahora creo 10 posts por día en AdGenius. ¡Ahorré una fortuna y tengo más control!"</p><div class="testimonial-author"><div class="author-avatar">MR</div><div class="author-info"><h4>Mario Ruiz</h4><p>E-commerce de Cosmética</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Soy repostera casera y no sabía nada de marketing. Con AdGenius creé un Instagram profesional en 1 día. ¡Mis ventas triplicaron!"</p><div class="testimonial-author"><div class="author-avatar">JS</div><div class="author-info"><h4>Julia Santos</h4><p>Repostera Artesanal</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"¡Herramienta impresionante! Creé un calendario de 365 días de contenido en 10 minutos. Nunca más me quedo sin ideas."</p><div class="testimonial-author"><div class="author-avatar">RT</div><div class="author-info"><h4>Rafael Torres</h4><p>Coach de Ventas</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★☆</div><p class="testimonial-text">"El DALL-E 3 integrado es un diferencial gigante. Creo imágenes increíbles sin contratar diseñadores. ¡La calidad es absurda!"</p><div class="testimonial-author"><div class="author-avatar">AC</div><div class="author-info"><h4>Ana Costa</h4><p>Gestora de Tráfico</p></div></div></div>
+                </div>
+            </div>
+        </section>
+        <section class="section faq">
+            <div class="container">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <div class="faq-grid">
+                    <div class="faq-item"><h3 class="faq-question">❓ ¿Necesito saber de marketing?</h3><p class="faq-answer">Cero. Si sabes escribir "panadero" o "coach", sabes usar AdGenius. La IA se encarga de todo: estrategia, copy, diseño, todo.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ ¿Cómo funciona la prueba gratis?</h3><p class="faq-answer">7 días completos con acceso total. Sin pedir tarjeta. Prueba todo, crea todos los posts que quieras. ¿No te gusta? Solo no renueves.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ ¿Funciona para mi negocio?</h3><p class="faq-answer">Si vendes algo (producto, servicio, curso, consultoría), funciona. Desde la repostera casera hasta multinacional. Ya probamos 200+ nichos.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ ¿Puedo cancelar cuando quiera?</h3><p class="faq-answer">Sí. Sin multa, sin burocracia. Cancelas con 1 clic en el panel. Tus archivos quedan disponibles 30 días tras la cancelación.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ ¿Cuál es la diferencia con ChatGPT?</h3><p class="faq-answer">ChatGPT es genérico. AdGenius está especializado en marketing con 200+ prompts probados, DALL-E 3 integrado, generador de vídeos, calendarios y plantillas listas.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ ¿Y si no sé usarlo?</h3><p class="faq-answer">Imposible no saber. Es literalmente: escribe tu profesión, haz clic en generar. Más fácil que Instagram. Si sabes usar WhatsApp, sabes usar AdGenius.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-final">
+            <div class="container">
+                <h2>Tus Competidores Ya Están Usando IA.<br>¿Y Tú?</h2>
+                <p>Empieza a crear contenido profesional hoy. Sin equipo, sin equipamiento, sin complicación.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Empezar Ahora - 7 Días Gratis</a>
+                <div class="trust-line">✓ Sin tarjeta de crédito &nbsp;•&nbsp; ✓ Cancela cuando quieras &nbsp;•&nbsp; ✓ Soporte en español</div>
+            </div>
+        </section>
+        <footer><div class="container"><p>© 2026 AdGenius AI. Todos los derechos reservados.</p></div></footer>
+    </div>
+
+    <!-- FRANÇAIS -->
+    <div data-lang="fr">
+        <section class="hero">
+            <div class="container">
+                <div class="badge">✨ 7 Jours Gratuits • Sans Carte</div>
+                <h1>Marketing Professionnel<br><span class="gradient-text">Pour Toute Entreprise</span></h1>
+                <p class="hero-subtitle">Du boulanger à la multinationale. Créez des posts, vidéos et images professionnels sans connaître le marketing. Tapez votre profession.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Commencer Gratuitement</a>
+                <div class="trust-line">✓ Sans carte &nbsp;•&nbsp; ✓ 7 jours gratuits &nbsp;•&nbsp; ✓ Annulez quand vous voulez</div>
+            </div>
+        </section>
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item"><h3>5 000+</h3><p>contenus créés</p></div>
+                    <div class="stat-item"><h3>13</h3><p>outils IA</p></div>
+                    <div class="stat-item"><h3>6</h3><p>langues natives</p></div>
+                    <div class="stat-item"><h3>100%</h3><p>sans complication</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section before-after">
+            <div class="container">
+                <h2 class="section-title">Marketing <span class="gradient-text">avant et après</span> AdGenius</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-card before">
+                        <span class="comparison-badge">✗ L'ANCIENNE FAÇON</span>
+                        <h3>Compliqué et Cher</h3>
+                        <ul class="comparison-list">
+                            <li>Les agences facturent des milliers par projet</li>
+                            <li>Des semaines d'attente pour l'approbation</li>
+                            <li>Dépend du designer, rédacteur, vidéaste</li>
+                            <li>Impossible de scale seul</li>
+                            <li>Chaque réseau social = outil différent</li>
+                            <li>Besoin de comprendre le marketing</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card after">
+                        <span class="comparison-badge">✓ AVEC ADGENIUS</span>
+                        <h3>Simple et Accessible</h3>
+                        <ul class="comparison-list">
+                            <li>Essai gratuit de 7 jours complets</li>
+                            <li>Contenu prêt en quelques minutes</li>
+                            <li>100% par vous-même, sans dépendance</li>
+                            <li>Créez des posts illimités par jour</li>
+                            <li>13 outils en 1 plateforme</li>
+                            <li>Tapez "boulanger" et c'est prêt</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section use-cases">
+            <div class="container">
+                <h2 class="section-title">Fonctionne Pour <span class="gradient-text">Toute Profession</span></h2>
+                <p class="section-subtitle">Des débutants aux entreprises. Si vous avez quelque chose à vendre, AdGenius crée votre contenu.</p>
+                <div class="cases-grid">
+                    <div class="case-card"><div class="case-emoji">🍰</div><h3>Pâtissière à Domicile</h3><p>Faites des gâteaux à la maison? Tapez "pâtissière" + "mamans occupées" et recevez 30 jours de posts prêts.</p></div>
+                    <div class="case-card"><div class="case-emoji">💼</div><h3>Coach</h3><p>Tapez "coach minceur" + "femmes 30-45 ans" et ayez des vidéos, carrousels et stories professionnels.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏪</div><h3>Commerçant</h3><p>Avez une boutique? Tapez "vêtements femme" + "jeunes 18-25" et créez des campagnes complètes avec des images IA.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏋️</div><h3>Coach Sportif</h3><p>Besoin de contenu quotidien? Tapez "coach sportif" et générez des conseils d'entraînement et de motivation.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏢</div><h3>Entreprise</h3><p>Équipe marketing surchargée? Automatisez les posts corporate, newsletters et vidéos institutionnelles.</p></div>
+                    <div class="case-card"><div class="case-emoji">🎓</div><h3>Infoproduits</h3><p>Vendez des cours? Créez des emails de vente, scripts de VSL et posts de lancement en minutes.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section how-it-works">
+            <div class="container">
+                <h2 class="section-title">Simple, Rapide et <span class="gradient-text">Sans Complication</span></h2>
+                <div class="steps-grid">
+                    <div class="step-card"><div class="step-number">1</div><h3>Tapez 2 Mots</h3><p>Votre profession + votre public. Exemple: "nutritionniste" + "femmes enceintes". Terminé. AdGenius comprend.</p></div>
+                    <div class="step-card"><div class="step-number">2</div><h3>L'IA Crée Tout</h3><p>Textes persuasifs, images réalistes avec DALL-E 3, vidéos avec avatars, calendriers de 365 jours. Tout automatique.</p></div>
+                    <div class="step-card"><div class="step-number">3</div><h3>Publiez et Vendez</h3><p>Copiez, téléchargez ou programmez. Fonctionne sur Instagram, TikTok, Facebook, LinkedIn, YouTube. Tous les réseaux.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section features">
+            <div class="container">
+                <h2 class="section-title">Tout Ce Dont Vous Avez Besoin <span class="gradient-text">En Un Seul Endroit</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card"><div class="feature-icon">✍️</div><div class="feature-content"><h4>Textes Persuasifs</h4><p>Posts Instagram, TikTok, LinkedIn, Facebook, YouTube. Copy professionnel en secondes.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-content"><h4>DALL-E 3 Intégré</h4><p>Seul avec DALL-E 3. Images ultra-réalistes sans quitter la plateforme.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎬</div><div class="feature-content"><h4>Vidéos avec Avatar IA</h4><p>Créez des vidéos professionnelles avec des présentateurs virtuels. Sans caméra, sans montage.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-content"><h4>Calendrier 365 Jours</h4><p>Une année entière planifiée automatiquement. Ne manquez plus jamais d'idées.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🌍</div><div class="feature-content"><h4>6 Langues Natives</h4><p>Portugais, Anglais, Espagnol, Français, Allemand, Italien. Pas de traduction, IA native.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">📚</div><div class="feature-content"><h4>200+ Prompts Prêts</h4><p>Bibliothèque complète testée et validée. Économisez des heures d'essais et d'erreurs.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-content"><h4>Création Instantanée</h4><p>De zéro à post en moins de 2 minutes. Plus rapide que n'importe quel designer.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-content"><h4>Pour Tous les Réseaux</h4><p>Instagram, TikTok, Facebook, LinkedIn, YouTube, Pinterest. Un outil, tous les réseaux.</p></div></div>
+                </div>
+            </div>
+        </section>
+        <section class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">Les Utilisateurs <span class="gradient-text">L'Adorent</span></h2>
+                <p class="section-subtitle">Découvrez ce que nos clients disent d'AdGenius</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Je payais 500€/mois à une agence. Maintenant je crée 10 posts par jour sur AdGenius. J'ai économisé une fortune et j'ai plus de contrôle!"</p><div class="testimonial-author"><div class="author-avatar">MR</div><div class="author-info"><h4>Marc Rousseau</h4><p>E-commerce de Cosmétique</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Je suis pâtissière à domicile et je ne connaissais rien au marketing. Avec AdGenius j'ai créé un Instagram professionnel en 1 jour. Mes ventes ont triplé!"</p><div class="testimonial-author"><div class="author-avatar">JS</div><div class="author-info"><h4>Julie Simon</h4><p>Pâtissière Artisanale</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Outil impressionnant! J'ai créé un calendrier de 365 jours de contenu en 10 minutes. Je ne manque plus jamais d'idées."</p><div class="testimonial-author"><div class="author-avatar">RT</div><div class="author-info"><h4>Raphaël Thomas</h4><p>Coach en Ventes</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★☆</div><p class="testimonial-text">"Le DALL-E 3 intégré est un différenciateur énorme. Je crée des images incroyables sans embaucher de designers. La qualité est folle!"</p><div class="testimonial-author"><div class="author-avatar">AC</div><div class="author-info"><h4>Anne Côte</h4><p>Gestionnaire de Trafic</p></div></div></div>
+                </div>
+            </div>
+        </section>
+        <section class="section faq">
+            <div class="container">
+                <h2 class="section-title">Questions Fréquentes</h2>
+                <div class="faq-grid">
+                    <div class="faq-item"><h3 class="faq-question">❓ Ai-je besoin de connaissances en marketing?</h3><p class="faq-answer">Zéro. Si vous savez écrire "boulanger" ou "coach", vous savez utiliser AdGenius. L'IA s'occupe de tout: stratégie, copy, design, tout.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Comment fonctionne l'essai gratuit?</h3><p class="faq-answer">7 jours complets avec accès total. Sans demander de carte. Testez tout, créez autant de posts que vous voulez. Pas satisfait? Ne renouvelez simplement pas.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Cela fonctionne-t-il pour mon entreprise?</h3><p class="faq-answer">Si vous vendez quelque chose (produit, service, cours, consulting), ça fonctionne. De la pâtissière à domicile à la multinationale. Nous avons testé 200+ niches.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Puis-je annuler à tout moment?</h3><p class="faq-answer">Oui. Sans pénalité, sans bureaucratie. Annulez en 1 clic dans le tableau de bord. Vos fichiers restent disponibles 30 jours après l'annulation.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Quelle est la différence avec ChatGPT?</h3><p class="faq-answer">ChatGPT est générique. AdGenius est spécialisé en marketing avec 200+ prompts testés, DALL-E 3 intégré, générateur de vidéos, calendriers et templates prêts.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Et si je ne sais pas l'utiliser?</h3><p class="faq-answer">Impossible de ne pas savoir. C'est littéralement: tapez votre profession, cliquez sur générer. Plus facile qu'Instagram. Si vous savez utiliser WhatsApp, vous savez utiliser AdGenius.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-final">
+            <div class="container">
+                <h2>Vos Concurrents Utilisent Déjà l'IA.<br>Et Vous?</h2>
+                <p>Commencez à créer du contenu professionnel aujourd'hui. Sans équipe, sans équipement, sans complication.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Commencer Maintenant - 7 Jours Gratuits</a>
+                <div class="trust-line">✓ Sans carte bancaire &nbsp;•&nbsp; ✓ Annulez quand vous voulez &nbsp;•&nbsp; ✓ Support en français</div>
+            </div>
+        </section>
+        <footer><div class="container"><p>© 2026 AdGenius AI. Tous droits réservés.</p></div></footer>
+    </div>
+
+    <!-- DEUTSCH -->
+    <div data-lang="de">
+        <section class="hero">
+            <div class="container">
+                <div class="badge">✨ 7 Tage Gratis • Ohne Karte</div>
+                <h1>Professionelles Marketing<br><span class="gradient-text">Für Jedes Unternehmen</span></h1>
+                <p class="hero-subtitle">Vom Bäcker bis zum Konzern. Erstellen Sie professionelle Posts, Videos und Bilder ohne Marketing-Kenntnisse. Geben Sie einfach Ihren Beruf ein.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Jetzt Kostenlos Starten</a>
+                <div class="trust-line">✓ Ohne Karte &nbsp;•&nbsp; ✓ 7 Tage gratis &nbsp;•&nbsp; ✓ Jederzeit kündbar</div>
+            </div>
+        </section>
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item"><h3>5.000+</h3><p>erstellte Inhalte</p></div>
+                    <div class="stat-item"><h3>13</h3><p>KI-Tools</p></div>
+                    <div class="stat-item"><h3>6</h3><p>native Sprachen</p></div>
+                    <div class="stat-item"><h3>100%</h3><p>unkompliziert</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section before-after">
+            <div class="container">
+                <h2 class="section-title">Marketing <span class="gradient-text">vorher und nachher</span> AdGenius</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-card before">
+                        <span class="comparison-badge">✗ DER ALTE WEG</span>
+                        <h3>Kompliziert und Teuer</h3>
+                        <ul class="comparison-list">
+                            <li>Agenturen berechnen Tausende pro Projekt</li>
+                            <li>Wochen warten auf Genehmigung</li>
+                            <li>Abhängig von Designer, Texter, Videomaker</li>
+                            <li>Unmöglich allein zu skalieren</li>
+                            <li>Jedes soziale Netzwerk = anderes Tool</li>
+                            <li>Marketing-Kenntnisse erforderlich</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card after">
+                        <span class="comparison-badge">✓ MIT ADGENIUS</span>
+                        <h3>Einfach und Zugänglich</h3>
+                        <ul class="comparison-list">
+                            <li>7 Tage kostenlos testen</li>
+                            <li>Inhalte in Minuten fertig</li>
+                            <li>100% selbst, ohne Abhängigkeiten</li>
+                            <li>Unbegrenzte Posts pro Tag erstellen</li>
+                            <li>13 Tools in 1 Plattform</li>
+                            <li>Tippen Sie "Bäcker" und fertig</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section use-cases">
+            <div class="container">
+                <h2 class="section-title">Funktioniert Für <span class="gradient-text">Jeden Beruf</span></h2>
+                <p class="section-subtitle">Von Anfängern bis Unternehmen. Wenn Sie etwas zu verkaufen haben, erstellt AdGenius Ihre Inhalte.</p>
+                <div class="cases-grid">
+                    <div class="case-card"><div class="case-emoji">🍰</div><h3>Hausbäckerin</h3><p>Backen Sie Kuchen zu Hause? Tippen Sie "Hausbäckerin" + "beschäftigte Mütter" und erhalten Sie 30 Tage Posts.</p></div>
+                    <div class="case-card"><div class="case-emoji">💼</div><h3>Coach</h3><p>Tippen Sie "Abnehm-Coach" + "Frauen 30-45" und erhalten Sie professionelle Videos, Karussells und Stories.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏪</div><h3>Ladenbesitzer</h3><p>Haben Sie ein Geschäft? Tippen Sie "Damenmode" + "junge 18-25" und erstellen Sie komplette Kampagnen mit KI-Bildern.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏋️</div><h3>Personal Trainer</h3><p>Brauchen Sie tägliche Inhalte? Tippen Sie "Personal Trainer" und generieren Sie Trainingstipps und Motivation.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏢</div><h3>Unternehmen</h3><p>Überlastetes Marketing-Team? Automatisieren Sie Corporate Posts, Newsletter und institutionelle Videos.</p></div>
+                    <div class="case-card"><div class="case-emoji">🎓</div><h3>Infoprodukte</h3><p>Verkaufen Sie Kurse? Erstellen Sie Sales-E-Mails, VSL-Skripte und Launch-Posts in Minuten.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section how-it-works">
+            <div class="container">
+                <h2 class="section-title">Einfach, Schnell und <span class="gradient-text">Unkompliziert</span></h2>
+                <div class="steps-grid">
+                    <div class="step-card"><div class="step-number">1</div><h3>2 Wörter Tippen</h3><p>Ihr Beruf + Ihr Publikum. Beispiel: "Ernährungsberater" + "schwangere Frauen". Fertig. AdGenius versteht.</p></div>
+                    <div class="step-card"><div class="step-number">2</div><h3>KI Erstellt Alles</h3><p>Überzeugende Texte, realistische Bilder mit DALL-E 3, Videos mit Avataren, 365-Tage-Kalender. Alles automatisch.</p></div>
+                    <div class="step-card"><div class="step-number">3</div><h3>Veröffentlichen & Verkaufen</h3><p>Kopieren, herunterladen oder planen. Funktioniert auf Instagram, TikTok, Facebook, LinkedIn, YouTube. Alle Netzwerke.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section features">
+            <div class="container">
+                <h2 class="section-title">Alles Was Sie Brauchen <span class="gradient-text">An Einem Ort</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card"><div class="feature-icon">✍️</div><div class="feature-content"><h4>Überzeugende Texte</h4><p>Instagram, TikTok, LinkedIn, Facebook, YouTube Posts. Professioneller Copy in Sekunden.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-content"><h4>DALL-E 3 Integriert</h4><p>Einzig mit DALL-E 3. Ultra-realistische Bilder ohne die Plattform zu verlassen.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎬</div><div class="feature-content"><h4>Videos mit KI-Avatar</h4><p>Erstellen Sie professionelle Videos mit virtuellen Moderatoren. Ohne Kamera, ohne Bearbeitung.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-content"><h4>365-Tage-Kalender</h4><p>Ein ganzes Jahr automatisch geplant. Nie mehr ohne Ideen.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🌍</div><div class="feature-content"><h4>6 Native Sprachen</h4><p>Portugiesisch, Englisch, Spanisch, Französisch, Deutsch, Italienisch. Keine Übersetzung, native KI.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">📚</div><div class="feature-content"><h4>200+ Fertige Prompts</h4><p>Vollständige getestete Bibliothek. Sparen Sie Stunden an Versuch und Irrtum.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-content"><h4>Sofortige Erstellung</h4><p>Von null auf Post in unter 2 Minuten. Schneller als jeder Designer.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-content"><h4>Für Alle Netzwerke</h4><p>Instagram, TikTok, Facebook, LinkedIn, YouTube, Pinterest. Ein Tool, alle Netzwerke.</p></div></div>
+                </div>
+            </div>
+        </section>
+        <section class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">Nutzer <span class="gradient-text">Lieben Es</span></h2>
+                <p class="section-subtitle">Sehen Sie, was unsere Kunden über AdGenius sagen</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Ich zahlte 500€/Monat an eine Agentur. Jetzt erstelle ich 10 Posts pro Tag auf AdGenius. Habe ein Vermögen gespart und mehr Kontrolle!"</p><div class="testimonial-author"><div class="author-avatar">MR</div><div class="author-info"><h4>Markus Richter</h4><p>E-Commerce für Kosmetik</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Ich bin Hausbäckerin und wusste nichts über Marketing. Mit AdGenius erstellte ich in 1 Tag ein professionelles Instagram. Meine Verkäufe haben sich verdreifacht!"</p><div class="testimonial-author"><div class="author-avatar">JS</div><div class="author-info"><h4>Julia Schmidt</h4><p>Handwerkliche Bäckerin</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Beeindruckendes Tool! Ich erstellte einen 365-Tage-Inhaltskalender in 10 Minuten. Nie mehr ohne Ideen."</p><div class="testimonial-author"><div class="author-avatar">RT</div><div class="author-info"><h4>Rafael Thomas</h4><p>Verkaufs-Coach</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★☆</div><p class="testimonial-text">"Das integrierte DALL-E 3 ist ein riesiger Unterschied. Ich erstelle erstaunliche Bilder ohne Designer einzustellen. Die Qualität ist verrückt!"</p><div class="testimonial-author"><div class="author-avatar">AC</div><div class="author-info"><h4>Anna Koch</h4><p>Traffic-Managerin</p></div></div></div>
+                </div>
+            </div>
+        </section>
+        <section class="section faq">
+            <div class="container">
+                <h2 class="section-title">Häufig Gestellte Fragen</h2>
+                <div class="faq-grid">
+                    <div class="faq-item"><h3 class="faq-question">❓ Brauche ich Marketing-Kenntnisse?</h3><p class="faq-answer">Null. Wenn Sie "Bäcker" oder "Coach" schreiben können, können Sie AdGenius nutzen. Die KI kümmert sich um alles: Strategie, Copy, Design, alles.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Wie funktioniert die kostenlose Testversion?</h3><p class="faq-answer">7 vollständige Tage mit vollem Zugriff. Ohne Karte. Testen Sie alles, erstellen Sie so viele Posts wie Sie möchten. Gefällt es Ihnen nicht? Einfach nicht verlängern.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Funktioniert es für mein Unternehmen?</h3><p class="faq-answer">Wenn Sie etwas verkaufen (Produkt, Dienstleistung, Kurs, Beratung), funktioniert es. Von der Hausbäckerin bis zum Konzern. Wir haben 200+ Nischen getestet.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Kann ich jederzeit kündigen?</h3><p class="faq-answer">Ja. Ohne Strafe, ohne Bürokratie. Kündigen Sie mit 1 Klick im Dashboard. Ihre Dateien bleiben 30 Tage nach Kündigung verfügbar.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Was ist der Unterschied zu ChatGPT?</h3><p class="faq-answer">ChatGPT ist generisch. AdGenius ist auf Marketing spezialisiert mit 200+ getesteten Prompts, DALL-E 3 integriert, Video-Generator, Kalendern und fertigen Vorlagen.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Was wenn ich es nicht nutzen kann?</h3><p class="faq-answer">Unmöglich nicht zu wissen. Es ist buchstäblich: Tippen Sie Ihren Beruf, klicken Sie auf generieren. Einfacher als Instagram. Wenn Sie WhatsApp nutzen können, können Sie AdGenius nutzen.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-final">
+            <div class="container">
+                <h2>Ihre Konkurrenten Nutzen Bereits KI.<br>Und Sie?</h2>
+                <p>Beginnen Sie heute mit der Erstellung professioneller Inhalte. Ohne Team, ohne Ausrüstung, ohne Komplikation.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Jetzt Starten - 7 Tage Gratis</a>
+                <div class="trust-line">✓ Ohne Kreditkarte &nbsp;•&nbsp; ✓ Jederzeit kündbar &nbsp;•&nbsp; ✓ Support auf Deutsch</div>
+            </div>
+        </section>
+        <footer><div class="container"><p>© 2026 AdGenius AI. Alle Rechte vorbehalten.</p></div></footer>
+    </div>
+
+    <!-- ITALIANO -->
+    <div data-lang="it">
+        <section class="hero">
+            <div class="container">
+                <div class="badge">✨ 7 Giorni Gratis • Senza Carta</div>
+                <h1>Marketing Professionale<br><span class="gradient-text">Per Qualsiasi Azienda</span></h1>
+                <p class="hero-subtitle">Dal fornaio alla multinazionale. Crea post, video e immagini professionali senza conoscere il marketing. Digita la tua professione.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Inizia Gratis Ora</a>
+                <div class="trust-line">✓ Senza carta &nbsp;•&nbsp; ✓ 7 giorni gratis &nbsp;•&nbsp; ✓ Cancella quando vuoi</div>
+            </div>
+        </section>
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item"><h3>5.000+</h3><p>contenuti creati</p></div>
+                    <div class="stat-item"><h3>13</h3><p>strumenti IA</p></div>
+                    <div class="stat-item"><h3>6</h3><p>lingue native</p></div>
+                    <div class="stat-item"><h3>100%</h3><p>senza complicazioni</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section before-after">
+            <div class="container">
+                <h2 class="section-title">Marketing <span class="gradient-text">prima e dopo</span> AdGenius</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-card before">
+                        <span class="comparison-badge">✗ IL VECCHIO MODO</span>
+                        <h3>Complicato e Costoso</h3>
+                        <ul class="comparison-list">
+                            <li>Le agenzie fanno pagare migliaia per progetto</li>
+                            <li>Settimane di attesa per l'approvazione</li>
+                            <li>Dipende da designer, copywriter, videomaker</li>
+                            <li>Impossibile scalare da solo</li>
+                            <li>Ogni social network = strumento diverso</li>
+                            <li>Bisogna capire il marketing</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card after">
+                        <span class="comparison-badge">✓ CON ADGENIUS</span>
+                        <h3>Semplice e Accessibile</h3>
+                        <ul class="comparison-list">
+                            <li>Prova gratuita per 7 giorni completi</li>
+                            <li>Contenuto pronto in minuti</li>
+                            <li>100% da solo, senza dipendenze</li>
+                            <li>Crea post illimitati al giorno</li>
+                            <li>13 strumenti in 1 piattaforma</li>
+                            <li>Digita "fornaio" ed è pronto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section use-cases">
+            <div class="container">
+                <h2 class="section-title">Funziona Per <span class="gradient-text">Qualsiasi Professione</span></h2>
+                <p class="section-subtitle">Da principianti ad aziende. Se hai qualcosa da vendere, AdGenius crea i tuoi contenuti.</p>
+                <div class="cases-grid">
+                    <div class="case-card"><div class="case-emoji">🍰</div><h3>Pasticcera Casalinga</h3><p>Fai dolci a casa? Digita "pasticcera casalinga" + "mamme impegnate" e ricevi 30 giorni di post pronti.</p></div>
+                    <div class="case-card"><div class="case-emoji">💼</div><h3>Coach</h3><p>Digita "coach dimagrimento" + "donne 30-45 anni" e ottieni video, caroselli e stories professionali.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏪</div><h3>Negoziante</h3><p>Hai un negozio? Digita "abbigliamento donna" + "giovani 18-25" e crea campagne complete con immagini IA.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏋️</div><h3>Personal Trainer</h3><p>Hai bisogno di contenuti quotidiani? Digita "personal trainer" e genera consigli di allenamento e motivazione.</p></div>
+                    <div class="case-card"><div class="case-emoji">🏢</div><h3>Azienda</h3><p>Team di marketing sovraccarico? Automatizza post aziendali, newsletter e video istituzionali.</p></div>
+                    <div class="case-card"><div class="case-emoji">🎓</div><h3>Infoprodotti</h3><p>Vendi corsi? Crea email di vendita, script VSL e post di lancio in minuti.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section how-it-works">
+            <div class="container">
+                <h2 class="section-title">Semplice, Veloce e <span class="gradient-text">Senza Complicazioni</span></h2>
+                <div class="steps-grid">
+                    <div class="step-card"><div class="step-number">1</div><h3>Digita 2 Parole</h3><p>La tua professione + il tuo pubblico. Esempio: "nutrizionista" + "donne incinte". Fatto. AdGenius capisce.</p></div>
+                    <div class="step-card"><div class="step-number">2</div><h3>L'IA Crea Tutto</h3><p>Testi persuasivi, immagini realistiche con DALL-E 3, video con avatar, calendari di 365 giorni. Tutto automatico.</p></div>
+                    <div class="step-card"><div class="step-number">3</div><h3>Pubblica e Vendi</h3><p>Copia, scarica o programma. Funziona su Instagram, TikTok, Facebook, LinkedIn, YouTube. Tutte le reti.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="section features">
+            <div class="container">
+                <h2 class="section-title">Tutto Ciò Di Cui Hai Bisogno <span class="gradient-text">In Un Solo Posto</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card"><div class="feature-icon">✍️</div><div class="feature-content"><h4>Testi Persuasivi</h4><p>Post Instagram, TikTok, LinkedIn, Facebook, YouTube. Copy professionale in secondi.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-content"><h4>DALL-E 3 Integrato</h4><p>Unico con DALL-E 3. Immagini ultra-realistiche senza uscire dalla piattaforma.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎬</div><div class="feature-content"><h4>Video con Avatar IA</h4><p>Crea video professionali con presentatori virtuali. Senza videocamera, senza montaggio.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-content"><h4>Calendario 365 Giorni</h4><p>Un anno intero pianificato automaticamente. Mai più senza idee.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🌍</div><div class="feature-content"><h4>6 Lingue Native</h4><p>Portoghese, Inglese, Spagnolo, Francese, Tedesco, Italiano. Non è traduzione, è IA nativa.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">📚</div><div class="feature-content"><h4>200+ Prompt Pronti</h4><p>Libreria completa testata e convalidata. Risparmia ore di prova ed errore.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-content"><h4>Creazione Istantanea</h4><p>Da zero a post in meno di 2 minuti. Più veloce di qualsiasi designer.</p></div></div>
+                    <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-content"><h4>Per Tutte le Reti</h4><p>Instagram, TikTok, Facebook, LinkedIn, YouTube, Pinterest. Uno strumento, tutte le reti.</p></div></div>
+                </div>
+            </div>
+        </section>
+        <section class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">Gli Utenti <span class="gradient-text">Lo Adorano</span></h2>
+                <p class="section-subtitle">Guarda cosa dicono i nostri clienti di AdGenius</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Pagavo 500€/mese a un'agenzia. Ora creo 10 post al giorno su AdGenius. Ho risparmiato una fortuna e ho più controllo!"</p><div class="testimonial-author"><div class="author-avatar">MR</div><div class="author-info"><h4>Marco Rossi</h4><p>E-commerce di Cosmetica</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Sono una pasticcera casalinga e non sapevo nulla di marketing. Con AdGenius ho creato un Instagram professionale in 1 giorno. Le mie vendite sono triplicate!"</p><div class="testimonial-author"><div class="author-avatar">GS</div><div class="author-info"><h4>Giulia Silva</h4><p>Pasticcera Artigianale</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Strumento impressionante! Ho creato un calendario di 365 giorni di contenuti in 10 minuti. Mai più senza idee."</p><div class="testimonial-author"><div class="author-avatar">RT</div><div class="author-info"><h4>Raffaele Torti</h4><p>Coach di Vendite</p></div></div></div>
+                    <div class="testimonial-card"><div class="stars">★★★★☆</div><p class="testimonial-text">"Il DALL-E 3 integrato è un differenziatore enorme. Creo immagini incredibili senza assumere designer. La qualità è pazzesca!"</p><div class="testimonial-author"><div class="author-avatar">AC</div><div class="author-info"><h4>Anna Costa</h4><p>Traffic Manager</p></div></div></div>
+                </div>
+            </div>
+        </section>
+        <section class="section faq">
+            <div class="container">
+                <h2 class="section-title">Domande Frequenti</h2>
+                <div class="faq-grid">
+                    <div class="faq-item"><h3 class="faq-question">❓ Ho bisogno di conoscenze di marketing?</h3><p class="faq-answer">Zero. Se sai scrivere "fornaio" o "coach", sai usare AdGenius. L'IA si occupa di tutto: strategia, copy, design, tutto.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Come funziona la prova gratuita?</h3><p class="faq-answer">7 giorni completi con accesso totale. Senza richiedere carta. Prova tutto, crea tutti i post che vuoi. Non ti piace? Semplicemente non rinnovare.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Funziona per la mia attività?</h3><p class="faq-answer">Se vendi qualcosa (prodotto, servizio, corso, consulenza), funziona. Dalla pasticcera casalinga alla multinazionale. Abbiamo testato 200+ nicchie.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Posso cancellare quando voglio?</h3><p class="faq-answer">Sì. Senza penale, senza burocrazia. Cancelli con 1 clic nel pannello. I tuoi file rimangono disponibili per 30 giorni dopo la cancellazione.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ Qual è la differenza con ChatGPT?</h3><p class="faq-answer">ChatGPT è generico. AdGenius è specializzato in marketing con 200+ prompt testati, DALL-E 3 integrato, generatore di video, calendari e template pronti.</p></div>
+                    <div class="faq-item"><h3 class="faq-question">❓ E se non so usarlo?</h3><p class="faq-answer">Impossibile non saperlo. È letteralmente: digita la tua professione, clicca su genera. Più facile di Instagram. Se sai usare WhatsApp, sai usare AdGenius.</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-final">
+            <div class="container">
+                <h2>I Tuoi Concorrenti Stanno Già Usando l'IA.<br>E Tu?</h2>
+                <p>Inizia a creare contenuti professionali oggi. Senza team, senza attrezzatura, senza complicazioni.</p>
+                <a href="https://app.adgeniusai.com" class="cta-btn">🚀 Inizia Ora - 7 Giorni Gratis</a>
+                <div class="trust-line">✓ Senza carta di credito &nbsp;•&nbsp; ✓ Cancella quando vuoi &nbsp;•&nbsp; ✓ Supporto in italiano</div>
+            </div>
+        </section>
+        <footer><div class="container"><p>© 2026 AdGenius AI. Tutti i diritti riservati.</p></div></footer>
+    </div>
+
+    <script>
+        function changeLang(lang) {
+            // Hide all
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show selected
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.add('active');
+            });
+            
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
